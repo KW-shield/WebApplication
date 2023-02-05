@@ -3,6 +3,7 @@
 웹 실행 프로그램입니다.
 
 구글 BERT base multilingual cased를 이용해 개발하였습니다
+
 (https://github.com/google-research/bert/blob/master/multilingual.md)
     
 	
