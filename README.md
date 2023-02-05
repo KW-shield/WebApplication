@@ -11,3 +11,11 @@
 # Requirements
 파이썬 프로그램 실행을 위해 필요한 패키지 참고하시기 바랍니다
 * [requirements.txt](https://github.com/KW-shield/WebApplication/files/10611734/requirements.txt)
+
+# 학습 데이터 셋
+한국어:
+
+영어:
+
+# 학습 환경
+Google Colab Pro/Pro+
