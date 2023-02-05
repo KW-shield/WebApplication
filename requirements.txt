@@ -1,0 +1,14 @@
+pip install flask
+pip install torch
+pip install numpy
+pip install tensorflow
+pip install nltk
+pip install pandas
+pip install urlextract
+pip install scikit-learn
+pip install transformers
+pip install konlpy
+pip install git+https://github.com/ssut/py-hanspell.git
+pip install python-whois
+pip install beautifulsoup4
+pip install tld
