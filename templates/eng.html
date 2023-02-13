@@ -107,6 +107,7 @@
           <form action="/eng" method="POST">
             <textarea
               class="text-bg-light border border-primary-subtle border-2 rounded"
+              style="font-family: 'Gowun Dodum', sans-serif; margin: auto;"
               placeholder="메일 내용을 입력하세요."
               name="e_mail"
               cols="100"
@@ -114,7 +115,8 @@
             ></textarea>
             <div class="py-4"></div>
             <p>
-              <button class="btn btn-outline-dark btn-lg" type="submit">
+              <div id="liveAlertPlaceholder"></div>
+              <button class="btn btn-outline-dark btn-lg" type="submit" id="liveAlertBtn">
                 검사
               </button>
             </p>
@@ -159,5 +161,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="../static/script.js"></script>
   </body>
 </html>
