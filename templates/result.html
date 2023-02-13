@@ -11,6 +11,10 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic+Coding:wght@700&family=Noto+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../static/css/style.css" />
   </head>
 
@@ -22,7 +26,11 @@
           <div class="container-fluid">
             <a
               class="navbar-brand"
-              style="color: rgb(56, 18, 18); font-size: 30px"
+              style="
+                color: rgb(56, 18, 18);
+                font-size: 35px;
+                font-family: 'Noto Sans', sans-serif;
+              "
             >
               <img
                 src="../static/img/kw.png"
@@ -40,7 +48,7 @@
             >
               <ul
                 class="navbar-nav position-absolute top-50 start-50 translate-middle"
-                style="font-family: sans-serif"
+                style="font-family: 'Noto Sans', sans-serif"
               >
                 <li class="nav-item">
                   <a
@@ -82,13 +90,10 @@
         <!-- ###### navbar end###### -->
         <div class="container-fluid mt-5">
           <h1
-            style="
-              text-align: center;
-              font-family: Arial, Helvetica, sans-serif;
-            "
+            style="text-align: center; font-family: 'Gowun Dodum', sans-serif"
             class="align-middle"
           >
-            <div style="margin-top: 250px">
+            <div style="margin-top: 100px">
               입력한 메일을 검사한 결과 <br />
               {%if url_pred %} {% for i in range(url_pred|length) %}
               <p style="margin-top: 15px">
