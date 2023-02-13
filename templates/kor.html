@@ -11,6 +11,10 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic+Coding:wght@700&family=Noto+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../static/css/style.css" />
   </head>
 
@@ -22,7 +26,11 @@
           <div class="container-fluid">
             <a
               class="navbar-brand"
-              style="color: rgb(56, 18, 18); font-size: 30px"
+              style="
+                color: rgb(56, 18, 18);
+                font-size: 35px;
+                font-family: 'Noto Sans', sans-serif; ;
+              "
             >
               <img
                 src="../static/img/kw.png"
@@ -40,7 +48,7 @@
             >
               <ul
                 class="navbar-nav position-absolute top-50 start-50 translate-middle"
-                style="font-family: sans-serif"
+                style="font-family: 'Noto Sans', sans-serif"
               >
                 <li class="nav-item">
                   <a
@@ -82,7 +90,7 @@
         <!-- ###### navbar end###### -->
         <div
           class="text-secondary px-4 py-5 text-center"
-          style="font-family: Arial, Helvetica, sans-serif"
+          style="font-family: 'Nanum Gothic Coding', monospace"
         >
           <h1 class="display-3 fw-bold py-5">
             <div class="p-3 mb-3 text-black">한국어 메일 탐지기</div>
@@ -90,6 +98,7 @@
           <form action="/kor" method="POST">
             <textarea
               class="text-bg-light border border-primary-subtle border-2 rounded"
+              style="font-family: 'Gowun Dodum', sans-serif"
               placeholder="메일 내용을 입력하세요."
               name="e_mail"
               cols="100"
