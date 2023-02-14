@@ -62,14 +62,15 @@ def preprocess(mail):
     
     text = email_to_text(mail) or ""  # HTML 관련 태그 제거
 
-    text = text.lower()  # 모든 문자를 소문자화
-
-    text = re.sub(re_delete_numberspot, '', text)  # 숫자 사이의 ',' 제거
 
     # url 추출
     urls = list(set(url_extractor.find_urls(text)))
     urls.sort(key=lambda url: len(url), reverse=True)
     all_url.append(urls)
+    text = re.sub(re_delete_numberspot, '', text)  # 숫자 사이의 ',' 제거
+
+    text = text.lower()  # 모든 문자를 소문자화
+    
     # 해당 url을 모두 ""로 변경
     for url in urls:
         text = text.replace(url, "")
