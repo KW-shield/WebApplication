@@ -95,6 +95,7 @@
           >
             <div style="margin-top: 100px">
               입력한 메일을 검사한 결과 <br />
+              <!-- ****************** URL이 포함된 경우 ****************  -->
               {%if url_pred %} {% for i in range(url_pred|length) %}
               <p style="margin-top: 15px">
                 {%if (url_pred[i][0][1] > 0.5) %} 메일에 포함된
@@ -112,7 +113,9 @@
                   >안전한 URL</span
                 >입니다. {%endif%}
               </p>
-              {% endfor %} {% if(label=='spam')%}
+              {% endfor %}
+              <!-- 메일 내용 spam or ham 판단 -->
+              {% if(label=='spam')%}
               <p>
                 메일 내용은
                 <span
@@ -131,20 +134,52 @@
                 >메일로 판단됩니다.
               </p>
               {%endif%}
-              <p>
-                {%if check == 1 %} 악성URL이 1개 이상 존재하므로 본 메일은
-                <span
-                  class="text-danger text-wrap"
-                  style="padding-bottom: 15px; margin-right: 7px"
-                  >피싱 메일</span
-                >로 판단됩니다.{%else%} 본 메일은 악성URL이 포함되지 않으므로
-                <span
-                  class="text-primary text-wrap"
-                  style="padding-bottom: 15px; margin-right: 7px"
-                  >{{label}}</span
-                >메일로 판단됩니다. {%endif%}
-              </p>
-              {% else %} {% if(label=='spam')%}
+              <!-- 메일 내용 spam or ham 판단 -->
+
+              <!-- 악성URL 1개 이상 존재 -->
+              {%if check == 1 %}
+              <br /><br />
+              <span>
+                <span style="border-bottom: 2px solid; padding-bottom: 1px"
+                  >악성URL이 1개 이상 존재하므로 본 메일은 최종
+                  <span
+                    class="text-danger text-wrap"
+                    style="padding-bottom: 15px; margin-right: 7px"
+                    >피싱 메일</span
+                  >로 판단됩니다.
+                </span>
+                <!-- 악성URL 1개 이상 존재 -->
+                <!-- 악성URL 없음 -->
+                {%else%} 본 메일은 악성URL이 포함되지 않으므로 피싱 메일은
+                아닌것으로 판단됩니다. <br /><br />
+                {%if(label=='spam') %}
+                <span style="border-bottom: 2px solid; padding-bottom: 1px">
+                  비정상적 메일 내용에 의해 최종
+                  <span
+                    class="text-danger text-wrap"
+                    style="padding-bottom: 15px; margin-right: 7px"
+                    >spam</span
+                  >
+                  메일로 판단됩니다.
+                </span>
+                {%else%}
+                <span style="border-bottom: 2px solid; padding-bottom: 1px">
+                  정상적인 메일 내용에 의해 최종
+                  <span
+                    class="text-primary text-wrap"
+                    style="padding-bottom: 15px; margin-right: 7px"
+                    >ham</span
+                  >
+                  메일로 판단됩니다. {%endif%}
+                </span>
+                <!-- 악성URL 없음 -->
+              </span>
+              {%endif%}
+              <!-- ****************** URL이 포함된 경우 ****************** -->
+
+              {% else %}
+              <!-- ****************** URL이 포함되지 않은 경우 ****************** -->
+              {% if(label=='spam')%}
               <p style="margin-top: 15px; margin-bottom: 0px">
                 메일에 포함된 URL은 없고, 메일 내용은
                 <span
@@ -153,6 +188,8 @@
                   >{{label}}</span
                 >
                 메일로 판단됩니다. <br />
+                <br />
+                <br />
               </p>
               {% else %}
               <p style="margin-top: 15px; margin-bottom: 0px">
@@ -163,28 +200,44 @@
                   >{{label}}</span
                 >
                 메일로 판단됩니다. <br />
+                <br />
+                <br />
               </p>
               {%endif%} {% if(label=='spam')%}
-              <p style="margin-top: 30px">
-                본 메일은
+              <span
+                style="
+                  margin-top: 30px;
+                  border-bottom: 2px solid;
+                  padding-bottom: 1px;
+                "
+              >
+                본 메일은 비정상적인 메일 내용에 의해
                 <span
                   class="text-danger text-wrap"
                   style="padding-bottom: 15px; margin-right: 7px"
                   >{{label}}</span
                 >
                 메일로 최종 판단됩니다.
-              </p>
+              </span>
               {% else %}
-              <p style="margin-top: 30px">
-                본 메일은
+              <span
+                style="
+                  margin-top: 30px;
+                  border-bottom: 2px solid;
+                  padding-bottom: 1px;
+                "
+              >
+                본 메일은 정상적인 메일 내용에 의해
                 <span
                   class="text-primary text-wrap"
                   style="padding-bottom: 15px; margin-right: 7px"
                   >{{label}}</span
                 >
                 메일로 최종 판단됩니다.
-              </p>
-              {%endif%} {%endif%}
+              </span>
+              {%endif%}
+              <!-- ****************** URL이 포함되지 않은 경우 ****************** -->
+              {%endif%}
             </div>
           </h1>
           <div
