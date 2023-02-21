@@ -10,6 +10,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/development')
+def development():
+    return render_template('development.html')
+
 @app.route('/kor', methods=['GET','POST'])
 def kor():
     if request.method=='GET':
