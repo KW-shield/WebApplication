@@ -200,21 +200,6 @@ def featureExtraction(data2):
   data2['port_scan'] = data2['url'].apply(lambda i: port_scan(i))
   return data2
 
-# 얼마나 많은 사용자들이 웹 페이지를 방문했는지 확인하는 함수
-# 1 정상 / 0 의심 / -1 피싱싱
-def web_traffic(url):
-  try:
-    #Filling the whitespaces in the URL if any
-    url = urllib.parse.quote(url)
-    rank = BeautifulSoup(urllib.request.urlopen("http://data.alexa.com/data?cli=10&dat=s&url=" + url).read(), "xml").find(
-        "REACH")['RANK']
-    rank = int(rank)
-  except TypeError:
-        return -1
-  if rank <= 100000:
-    return 1
-  else:
-    return 0
 
 # 1 정상 / -1 피싱
 # html 코드 안에 해당 도메인이 존재하는지 확인하는 함수
