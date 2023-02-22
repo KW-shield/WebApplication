@@ -33,12 +33,12 @@ button {
   cursor: pointer;
 }
 
-.container {
+/* .container {
   display: inline-block;
   color: aqua;
   text-align: center;
   padding-top: 10px;
-}
+} */
 
 #color {
   color: #4d1313;
