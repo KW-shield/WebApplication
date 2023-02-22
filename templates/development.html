@@ -91,42 +91,101 @@
         <!-- ###### navbar end###### -->
       </div>
       <!-- ########## body-content ########## -->
-      <!-- <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-4">Column</div>
-          <div class="col-lg-4">Column</div>
-          <div class="col-lg-4">Column</div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-4">Column</div>
-          <div class="col-lg-4">Column</div>
-          <div class="col-lg-4">Column</div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4">Column</div>
-          <div class="col-lg-4">Column</div>
-          <div class="col-lg-4">Column</div>
-        </div>
-      </div> -->
       <div
-        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
+        class="p-3 p-md-5 m-md-3"
+        style="
+          background-image: url(../static/img/bert.png);
+          background-repeat: no-repeat;
+          background-position: 100% 35%;
+          background-size: 55%;
+          text-align: left;
+        "
       >
-        <div class="col-md-5 p-lg-5 mx-auto my-5 text-dark">
-          <h1 class="display-4 fw-normal">Punny headline</h1>
-          <p class="lead fw-normal">
-            And an even wittier subheading to boot. Jumpstart your marketing
-            efforts with this example based on Apple’s marketing pages.
+        <div class="col-md-5 p-lg-5 text-dark">
+          <h1 class="display-4 fw-normal">딥러닝 모델</h1>
+          <h1
+            class="display-1 fw-normal"
+            style="color: black; text-shadow: 2px 3px #777879"
+          >
+            BERT
+          </h1>
+          <span style="padding-left: 5px; font-size: large">
+            Bidirectional Encoder Representations from Transformers
+          </span>
+          <br />
+          <br />
+          <p
+            class="lead fw-normal"
+            style="padding-left: 5px; white-space: nowrap"
+          >
+            2018년, 구글에서 개발한 사전 훈련된 언어모델로써
+            <br />자연어처리 분야에서 매우 높은 성능을 보이는 최첨단 딥러닝
+            모델이다. <br />
+            그 중에서도 100개 이상의 언어로 학습된
+            <span style="text-decoration: underline"
+              >bert-base-multilingual-cased </span
+            >모델을 사용하여 <br />
+            한국어와 영어를 한 모델에서 모두 인식할 수 있도록 학습시켰다.
           </p>
           <a
-            class="btn btn-outline-dark"
+            class="btn btn-outline-dark btn-lg"
             href="https://github.com/google-research/bert"
             style="margin-top: 5%"
-            >More about 'BERT'</a
+            >More about BERT</a
           >
         </div>
+        <hr class="my-hr" style="margin-top: 10px" />
       </div>
+      <h2
+        style="text-align: center; margin-bottom: 50px"
+        class="display-3 fw-normal"
+      >
+        Used Dataset
+      </h2>
+      <div class="d-md-flex my-3" style="margin-left: 15px; margin-right: 50px">
+        <div class="col-lg-4 text-bg-dark text-center me-md-3 px-3 px-md-5">
+          <div class="my-3 py-3">
+            <h2 class="display-5">Korean Mail Dataset</h2>
+            <p class="lead">메일 데이터를 직접 추출하여 라벨링</p>
+            ㅇ런개씨발
+          </div>
+        </div>
+        <div
+          class="col-lg-4 text-bg-dark text-center me-md-3 px-3 px-md-5"
+          style="white-space: nowrap"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">English Mail Dataset</h2>
+            <p class="lead">spamassasin과 kaggle에서 오픈데이터셋 사용</p>
+          </div>
+        </div>
+        <div class="col-lg-4 text-bg-dark text-center me-md-3 px-3 px-md-5">
+          <div class="my-3 py-3">
+            <h2 class="display-5">URL Dataset</h2>
+            <p class="lead">phishtank에서 오픈데이터셋 사용</p>
+          </div>
+        </div>
+      </div>
+      <hr
+        class="my-hr"
+        style="margin-left: 70px; margin-right: 70px; margin-top: 50px"
+      />
+      <div
+        class="h-200 p-5 text-bg-dark rounded-3 text-center mx-auto"
+        style="width: 80%"
+      >
+        <h2>Change the background</h2>
+        <p>
+          Swap the background-color utility and add a `.text-*` color utility to
+          mix up the jumbotron look. Then, mix and match with additional
+          component themes and more.
+        </p>
+        <button class="btn btn-outline-light" type="button">
+          Example button
+        </button>
+      </div>
+      <div style="opacity: 0"><div>black space</div></div>
 
       <!-- *************** footer ****************** -->
       <footer class="footer mt-auto bg-light">
