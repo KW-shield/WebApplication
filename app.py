@@ -19,6 +19,10 @@ def index():
 def development():
     return render_template('development.html')
 
+@app.route('/about_people')
+def about_people():
+    return render_template('people.html')
+
 @app.route('/kor', methods=['GET','POST'])
 def kor():
     if request.method=='GET':
