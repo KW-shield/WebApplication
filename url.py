@@ -175,19 +175,6 @@ def httpSecure(url):
         # print 'No matching pattern found'
         return -1
 
-
-def add_www(url):
-    if "https://" in url[:8]:
-        if not match_www.match(url[8:14]):
-            url = url[:8] + "www." + url[8:]
-    elif "http://" in url[:7]:
-        if not match_www.match(url[7:13]):
-            url = url[:7] + "www." + url[7:]
-    else:
-        if not match_www.match(url[:6]):
-            url = "www." + url
-    return url
-
 # HTTPS 검사, domain으로 받기
 # 1 정상 / -1 피싱
 # 포트가 열려있는지 확인
@@ -229,7 +216,7 @@ def port_scan(url):
 def featureExtraction(data2):
     data2['having_IP_Address'] = data2['url'].apply(
         lambda i: having_IP_Address(i))
-    data2['URL_Length'] = data2['url'].apply(lambda i: URL_Length(i))
+    # data2['URL_Length'] = data2['url'].apply(lambda i: URL_Length(i))
     data2['Shortening_Service'] = data2['url'].apply(
         lambda i: Shortining_Service(i))
     data2['having_At_Symbol'] = data2['url'].apply(
@@ -317,6 +304,23 @@ def External_Load_Script(response):
         else:
             return 1
 
+# 해당 url의 하이퍼링크 주소를 확인하는 함수
+
+
+def onmouseover(response):
+    if response == "":
+        return -1
+    else:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        links = soup.find_all("a")
+        for link in links:
+            try:
+                if link['onmouseover']:
+                    return -1
+            except:
+                pass
+        return 1
+
 
 def htmlExtraction(url):
     features = []
@@ -329,6 +333,7 @@ def htmlExtraction(url):
     features.append(Length_of_Source(response))
     features.append(duplicated_HEAD(response))
     features.append(External_Load_Script(response))
+    features.append(onmouseover(response))
 
     return features
 
@@ -345,7 +350,7 @@ def url_check(url):
         feature.append(htmlExtraction(url))
 
     feature_name = ['Domain_in_Source', 'Length_of_Source',
-                    'duplicated_HEAD', 'External_Load_Script']
+                    'duplicated_HEAD', 'External_Load_Script', 'onmouseover']
     data[[i for i in feature_name]] = pd.DataFrame(
         [i for i in feature], index=data.index)
 

@@ -173,7 +173,6 @@ def predict(email):
         http_url = []
         not_http_url = []
         for i in URL[0]:  # URL에 HTTP or HTTPS 가 존재하는지 확인한 후 붙이는 작업
-            i = url.add_www(i)
             url_tmp = i.split('/')
             if ("https:" in url_tmp[0].lower()) or ("http:" in url_tmp[0].lower()):
                 url_tmp[0] = url_tmp[0].lower()
