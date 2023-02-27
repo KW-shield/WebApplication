@@ -152,10 +152,18 @@ def predict(email):
         http_url = []
         not_http_url = []
         for i in URL[0]:  # URL에 HTTP or HTTPS 가 존재하는지 확인한 후 붙이는 작업
-            if ("https://" in i[:8]) or ("http://" in i[:7]):
+            i = url.add_www(i)
+            url_tmp = i.split('/')
+            if ("https:" in url_tmp[0].lower()) or ("http:" in url_tmp[0].lower()):
+                url_tmp[0] = url_tmp[0].lower()
+                url_tmp[2] = url_tmp[2].lower()
+                i = '/'.join(url_tmp)
                 http_url.append(i)
             else:
+                url_tmp[0] = url_tmp[0].lower()
+                i = '/'.join(url_tmp)
                 not_http_url.append(i)
+
         URL = http_url + attach_http(not_http_url)
 
         # 메일에 포함된 URL이 피싱인지 확인
@@ -201,16 +209,5 @@ def predict(email):
 
     input, masks, labels = next(iter(test_dataloader))
 
-    new_model = BertForSequenceClassification.from_pretrained(
-        'spam/', num_labels=2)
-
-    result_predict = new_model(input,
-                               token_type_ids=None,
-                               attention_mask=masks)
-
-    logits = result_predict[0]
-    pred = logits.detach().numpy()
-    pred = np.argmax(pred)
-
-    # 텍스트 분류 예측값, URL 예측값, 메일에 포함된 URL 반환
-    return pred, url_pred, url_in_mail
+    # model에 입력할 값들, URL 예측값, 메일에 포함된 URL 반환
+    return input, masks, labels, url_pred, url_in_mail
