@@ -11,8 +11,14 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic+Coding:wght@700&family=Noto+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../static/css/style.css" />
@@ -78,7 +84,10 @@
           </div>
         </nav>
         <!-- ###### navbar end###### -->
-        <div class="container-fluid mt-5">
+        <div
+          class="container-fluid mt-5 p-3 mb-2 border border-secondary rounded-start border-3 rounded-3"
+          style="width: fit-content"
+        >
           <h1
             style="text-align: center; font-family: 'Gowun Dodum', sans-serif"
             class="align-middle"
@@ -230,35 +239,35 @@
               {%endif%}
             </div>
           </h1>
+          <!-- 버튼 3개 부분 시작 -->
           <div
-            class="text-secondary px-4 py-5 text-center"
+            class="text-secondary px-4 py-5 text-center, mt-5"
             style="font-family: Arial, Helvetica, sans-serif"
           >
-            <div class="fs-5 mb-5 text-white">
-              <button
-                onclick="location.href='/'"
-                ;
-                type="button"
-                class="btn btn-outline-dark btn-lg px-4"
-              >
-                메인으로
-              </button>
-              <button
-                onclick="location.href='/eng'"
-                ;
-                type="button"
-                class="btn btn-outline-dark btn-lg px-4 mx-3"
-              >
-                영어 메일 재검사
-              </button>
-              <button
-                onclick="location.href='/kor'"
-                ;
-                type="button"
-                class="btn btn-outline-dark btn-lg px-4"
-              >
-                한국어 메일 재검사
-              </button>
+            <div class="fs-5 mb-5 text-white mt-3">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button
+                  class="btn btn-outline-dark py-2"
+                  type="button"
+                  onclick="location.href='/'"
+                >
+                  메인으로
+                </button>
+                <button
+                  class="btn btn-outline-dark py-2"
+                  type="button"
+                  onclick="location.href='/kor'"
+                >
+                  한국어 메일 재검사
+                </button>
+                <button
+                  class="btn btn-outline-dark py-2"
+                  type="button"
+                  onclick="location.href='/eng'"
+                >
+                  영어 메일 재검사
+                </button>
+              </div>
             </div>
           </div>
         </div>
